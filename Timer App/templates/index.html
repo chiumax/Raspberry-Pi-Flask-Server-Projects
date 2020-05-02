@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Timer App</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/micromodal/dist/micromodal.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/axios/dist/axios.min.js"
+    ></script>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="/static/js/script.js"></script>
+    <div class="body" id="body">
+      <div class="header">
+        Timer App
+      </div>
+      <div class="content">
+        <div class="formWrapper">
+          <h1>New Timer</h1>
+          <form method="post" onsubmit="getTimer()">
+            Name: <input type="text" name="name" id="name" /><br />
+            <div class="timeWrapper">
+              Hour:
+              <input
+                type="number"
+                name="hour"
+                id="hour"
+                min="0"
+                value="0"
+              />Minute:
+              <input
+                type="number"
+                name="minute"
+                id="minute"
+                min="0"
+                value="0"
+              />Second:
+              <input
+                type="number"
+                name="second"
+                id="second"
+                min="0"
+                value="0"
+              />
+            </div>
+            <input
+              type="button"
+              name="type"
+              value="create"
+              class=" "
+              onclick="return createTimer(this)"
+            />
+          </form>
+        </div>
+        <div class="timeListWrapper"></div>
+        <div class="container">
+          <div class="row" id="clockContainer"></div>
+        </div>
+      </div>
+      <div class="footer">
+        Made with ❤️ by dumblole
+      </div>
+    </div>
+  </body>
+</html>

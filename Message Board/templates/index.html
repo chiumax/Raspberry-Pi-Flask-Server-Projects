@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Message Board</title>
+    <script src="/static/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/micromodal/dist/micromodal.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/axios/dist/axios.min.js"
+    ></script>
+    <script src="/static/js/notify.min.js"></script>
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+
+  <body>
+    <script src="/static/js/script.js"></script>
+    <div class="body" id="body">
+      <div class="header">
+        Chat Board
+      </div>
+      <div class="content">
+        <h1 id="logName">Log In</h1>
+        <div id="logIn">
+          <form method="post" onsubmit="login()">
+            Name: <input type="text" name="user" id="user" /><br />
+            Pass: <input type="text" name="pass" id="pass" /><br />
+
+            <input
+              type="button"
+              name="type"
+              class="btn waves-effect waves-light "
+              value="Log In"
+              onclick="return login('login')"
+            />
+
+            <input
+              type="button"
+              name="type"
+              class="btn waves-effect waves-light "
+              value="Create Account"
+              onclick="return login('create')"
+            />
+          </form>
+        </div>
+
+        <div id="messages" class="messages"></div>
+        <div class="messageBoxWrapper">
+          <input
+            placeholder="Send a message..."
+            type="text"
+            id="msgBox"
+            onkeydown="if (event.keyCode == 13){
+                        document.getElementById('Send').click();document.getElementById('msgBox').value='';}"
+          />
+
+          <input
+            type="button"
+            id="Send"
+            class="btn waves-effect waves-light "
+            value="Send"
+            onclick="sendMessage(document.getElementById('msgBox').value);
+                            return document.getElementById('msgBox').value='';"
+          />
+        </div>
+      </div>
+      <div class="footer">
+        Made with ❤️ by dumblole
+      </div>
+    </div>
+  </body>
+</html>
