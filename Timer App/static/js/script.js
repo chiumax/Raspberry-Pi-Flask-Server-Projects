@@ -1,12 +1,12 @@
 var currentModals = [];
-const $ = id => {
+const $ = (id) => {
   return document.getElementById(id);
 };
 
 const getTimer = () => {
   const currTime = Date.now();
 
-  axios.get("/get_timer").then(response => {
+  axios.get("/get_timer").then((response) => {
     res = response.data;
     var template = "";
     var modalTemplate = "";
@@ -182,7 +182,7 @@ const getTimer = () => {
   return false;
 };
 
-const createTimer = e => {
+const createTimer = (e) => {
   console.log(e);
   const id = Date.now();
   let name = $("name").value;
@@ -211,19 +211,19 @@ const createTimer = e => {
       second: second,
       disabled: false,
       headers: {
-        "X-Content-Type-Options": "application/x-www-form-urlencoded"
-      }
+        "X-Content-Type-Options": "application/x-www-form-urlencoded",
+      },
     })
-    .then(function(response) {
+    .then(function (response) {
       console.log(response);
       console.log("Timer created");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 };
 
-const editTimer = id => {
+const editTimer = (id) => {
   console.log(id);
   const name = $(id + "name").value;
   const hour = $(id + "hour").value;
@@ -246,19 +246,19 @@ const editTimer = id => {
       second: second,
       disabled: false,
       headers: {
-        "X-Content-Type-Options": "application/x-www-form-urlencoded"
-      }
+        "X-Content-Type-Options": "application/x-www-form-urlencoded",
+      },
     })
-    .then(function(response) {
+    .then(function (response) {
       console.log(response);
       console.log("Timer edited");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 };
 
-const deleteTimer = id => {
+const deleteTimer = (id) => {
   console.log(id);
   //change to reflect modal
 
@@ -267,22 +267,22 @@ const deleteTimer = id => {
       id: id,
       disabled: true,
       headers: {
-        "X-Content-Type-Options": "application/x-www-form-urlencoded"
-      }
+        "X-Content-Type-Options": "application/x-www-form-urlencoded",
+      },
     })
-    .then(function(response) {
+    .then(function (response) {
       console.log(response);
       console.log("Timer deleted");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 };
-const editTimerModal = id => {
+const editTimerModal = (id) => {
   MicroModal.show(id + "editModal");
 };
 
-const deleteTimerModal = id => {
+const deleteTimerModal = (id) => {
   MicroModal.show(id + "deleteModal");
 };
 function getTimeRemaining(endtime) {
@@ -296,7 +296,7 @@ function getTimeRemaining(endtime) {
     days: days,
     hours: hours,
     minutes: minutes,
-    seconds: seconds
+    seconds: seconds,
   };
 }
 
